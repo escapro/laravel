@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 class StartController extends Controller
 {
     public function index() {
-//        $users = User::with('books')->get();
-//        return view('index', ['users' => $users]);
+        $users = User::with('books')->get();
+        return view('index', ['users' => $users]);
 
-        $data = DB::table('users')->where('id', '=', '1')->get();
+//        $data = DB::table('users')->where('id', '=', '1')->get();
 
         dd($data);
     }

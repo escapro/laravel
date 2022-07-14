@@ -23,6 +23,7 @@ Route::get('/categoryBooks', [StartController::class, 'categoryBooks']);
 
 Route::group(['middleware' => 'auth2', 'namespace' => 'App\Http\Controller'], function () {
     Route::get('/admin', [StartController::class, 'categoryBooks']);
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 });
 
 Auth::routes();
