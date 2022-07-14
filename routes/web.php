@@ -20,3 +20,11 @@ use App\Http\Controllers\StartController;
 
 Route::get('/', [StartController::class, 'index']);
 Route::get('/categoryBooks', [StartController::class, 'categoryBooks']);
+
+Route::group(['middleware' => 'auth2', 'namespace' => 'App\Http\Controller'], function () {
+    Route::get('/admin', [StartController::class, 'categoryBooks']);
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
